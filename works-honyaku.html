@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <meta property='og:type' content='website'>
-  <meta property='og:title' content='WebデザイナーTARO YAMADA ポートフォリオ'>
+  <meta property='og:title' content='Honyaku ポートフォリオ'>
   <meta property='og:url' content='URLが入る'>
-  <meta property='og:description' content='TARO YAMADAのポートフォリオサイトです。'>
+  <meta property='og:description' content='翻訳くんのポートフォリオ'>
   <meta property="og:image" content="img/ogp.png">
-  <meta name="description" content="TARO YAMADAのポートフォリオサイトです" />
-  <title>TARO YAMADA ポートフォリオ</title>
+  <meta name="description" content="翻訳くんのポートフォリオ" />
+  <title>翻訳くんのポートフォリオ</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
@@ -26,11 +26,12 @@
     <header class="header ">
       <div class="container">
         <h1 class="header-logo">
-          <a href=".">TARO YAMADA</a>
+          <a href=".">YUTARO TAKEUCHI_TOP</a>
         </h1>
         <nav class="gnav">
           <ul class="gnav-list">
             <li class="gnav-item"><a href=".#works">WORKS</a></li>
+            <li class="gnav-item"><a href="#research">RESEARCH</a></li>
             <li class="gnav-item"><a href="./#skill">SKILL</a></li>
             <li class="gnav-item"><a href="./#about">ABOUT</a></li>
             <li class="gnav-item"><a href="./#contact">CONTACT</a></li>
@@ -41,37 +42,89 @@
     <!-- /header -->
 
     <main class="content">
-
+<h1>理系論文翻訳アプリ「翻訳くん」</h1>
       <article class="article">
         <div class="article-container">
-          <h2 class="article-title">DesignXYZ様</h2>
-          <div class="article-body">
+          <h2 class="article-title"></h2>
+          <div class="work-show__info flex">
+            <div class="work-show__overview lt1">OVERVIEW</div>
+            <div>
+              <p class="work-show__abstract">理系論文を丸ごと翻訳したときにありがちな数式のズレを克服した翻訳アプリです。</p>
+            </div>
+          </div>
+
             <p>
-              <img src="img/works-sample.jpg" alt="">
-            </p>
-            <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります（作品について一言）
+              本作品は理系論文を読む際に日本語に翻訳し概要を掴むためのアプリです。
             </p>
             <h3>URL</h3>
-            <p><a href="https://yahoo.co.jp" target="_blank" rel="noopener">https://yahoo.co.jp</a></p>
+            <p><a href="https://github.com/SYutaroT/honyaku" target="_blank" rel="noopener">https://github.com/SYutaroT/honyaku</a></p>
             <h3>担当</h3>
-            <p>デザイン・コーディング</p>
-            <h3>サイトの目的</h3>
-            <p>サービスの認知と新規クライアントの獲得</p>
+            <p>企画から設計まで</p>
             <h3>ターゲット</h3>
-            <p>テキストが入りますテキストが入ります</p>
-            <h3>デザインについて</h3>
+            <p>100%自分</p>
+
+            <h3>作成理由</h3>
+            <p>4回生になり、研究が本格化しはじめ、学会論文などを読む機会が増えてきた。
+              読むべきアカデミックな論文はそのほとんどが英語で書かれており、英語アレルギーの私としては大変苦心させられることになった。
+              そこで学生の強い味方であるDeepL翻訳のPDFを丸ごと翻訳してくれる機能を用いて疑似日本語論文を作成したのが、
+              完成したPDFを見てがっかりした。そこにはうまく処理できなかった式がぐちゃぐちゃに配置された、混沌としたPDFがあった。
+              とても読めたものではない。
+              ならば1行づつ翻訳していけばいいのではないか。
+              私はそれができるほどマメな男ではなかった。
+              ならば英語で辞書を引きながら読めるようになるのはどうだろうか。
+              私はそれができるほど勤勉な男ではなかった。
+              そこで数式のズレが起きない翻訳機を自作することにした。
+            <img src="img/Deeple_pdf.png">
+            </p>
+
+            
+            
+            <h3>プログラミング</h3>
+            このアプリはpythonを用いて作成することにした。その理由は私が最も勉強した言語であること、
+            そしてライブラリが充実している点だ。単純に翻訳アプリを作るのは無謀なので既存ライブラリを組み合わせることで実現させる。
+            <br>
+            動作の構想はPDFをtxt形式に変換し
+            Deepl翻訳のAPIを利用して投げた文を翻訳することにした。
+            <h4>PDFの変換</h4>
+            論文を翻訳するにあたって最初に必要なことはPDFからテキストデータを抜き取ることである。
+            PythonではPDFを扱うライブラリが数多く存在するが、様々なものを試し「Nougat」を採用することにした。
+            これはPDFをLatex形式に変換するライブラリで、数式を扱う今回の翻訳機では適任だった。
+            
+            <h4>数式ズレの回避</h4>
             <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。<br>テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+              次にコンセプトである
+              
+              数式ズレの回避だが、
+              これは数式をDeepL翻訳が数式を扱えないことに起因する。そのため翻訳する際に数式を除外すれば回避できる。              
+              <br>
+              そこでLatex形式英文の数式を配列にいれ、元の場所に目印として「QJAAA~~QJZZZ」「QEAAA~QEZZZ」を順においていき、翻訳後にまた置き換えるという手法で数式の翻訳を回避することにした。
+              ここで目印が2種類存在するのは文中の式と別行立ての式を別々の配列に入れるためである。
+              このアイデアは下のサイトを参考にした。
+              <br><a href="https://qiita.com/hook125/items/df5cdd2a82d964ffe3dd">https://qiita.com/hook125/items/df5cdd2a82d964ffe3dd</a>
+
             </p>
             <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-            </p>
-            <h3>コーディングについて</h3>
-            <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。
-            </p>
+              <h4>実際の動作と問題点</h4>
+              ある程度自然な翻訳にするために1パラグラフずつDeepl翻訳に投げることとし、PDFを読み込み翻訳しLatex形式を再度PDFとして出力させた。
+              しかしここで2つの問題が発生した。
+              それは目印「QE～」が翻訳機にかけると変な日本語として出力されることと、
+              PDFが出力できずプログラムが強制停止することだ。
+            <h4>辞書機能の追加</h4>
+            1つ目の問題はDeeplAPIの辞書機能を用いることで解決した。これはあらかじめ翻訳しない単語をcsvにまとめておくという機能だ。日本語でのチュートリアルが存在しなかったので、
+            この辞書機能をどうプログラムに組み込むかでかなり苦労させられた。
+            <h4>全自動から半自動へ</h4>
+              2つ目の問題はプログラムの問題というより、「Nougat」の精度がそこまで高くなく、
+              変なLatex形式に変換することで引き起こされていることが分かった。<br>
+              そこでLatex形式で出力し、そのLatexを手動でコンパイルすることでPDFを作ることにした。この手法だと例えばうまくPDF化できない場合でも最悪手動Latexファイルをいじり直すことができる。変に頼りきりにしてはいけない。この時点で自動というコンセプトは崩壊したが、
+              このプログラムが無になるより半自動で完成させたほうが良いと考えたからここは飲み込むことにした。
+            
+              ほかにもLatex形式からPDFに変換する場合に#などの記号が文中にあるとコンパイルできないなどの問題が発生したが一括置換で何とかすることにした。こうして一応実用化に耐えうる翻訳アプリが完成させることができた。これを「翻訳くん」と名付けた。
+
+              <h3>翻訳くんの現状と今後</h3>
+              翻訳くんの今後のビジョンとして完全な全自動の実現を目標にしたい。その手法として1つ考えているのがChatGDPの連携だ。出力されたLatexをChatGDPにAPIで流すことで自動修復できるのではいう構想はある。しかしChatGDPの精度とDeepl＋ChatGDPで二重にお金を取られることを考えたら、いったんこのままでもいいかな。
+  
           </div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/HpjkN9Bk1zo?si=oWTSjeaWVR1bVZne" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           <div class="home-link">
             <a href="./#works">Works一覧へ</a>
           </div>

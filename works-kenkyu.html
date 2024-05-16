@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <meta property='og:type' content='website'>
-  <meta property='og:title' content='WebデザイナーTARO YAMADA ポートフォリオ'>
+  <meta property='og:title' content='Honyaku ポートフォリオ'>
   <meta property='og:url' content='URLが入る'>
-  <meta property='og:description' content='TARO YAMADAのポートフォリオサイトです。'>
+  <meta property='og:description' content='のポートフォリオ'>
   <meta property="og:image" content="img/ogp.png">
-  <meta name="description" content="TARO YAMADAのポートフォリオサイトです" />
-  <title>TARO YAMADA ポートフォリオ</title>
+  <meta name="description" content="のポートフォリオ" />
+  <title>のポートフォリオ</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
@@ -26,11 +26,12 @@
     <header class="header ">
       <div class="container">
         <h1 class="header-logo">
-          <a href=".">TARO YAMADA</a>
+          <a href=".">YUTARO TAKEUCHI_TOP</a>
         </h1>
         <nav class="gnav">
           <ul class="gnav-list">
             <li class="gnav-item"><a href=".#works">WORKS</a></li>
+            <li class="gnav-item"><a href="#research">RESEARCH</a></li>
             <li class="gnav-item"><a href="./#skill">SKILL</a></li>
             <li class="gnav-item"><a href="./#about">ABOUT</a></li>
             <li class="gnav-item"><a href="./#contact">CONTACT</a></li>
@@ -41,40 +42,58 @@
     <!-- /header -->
 
     <main class="content">
-
+<h1>研究テーマ：「深層展開」</h1>
       <article class="article">
         <div class="article-container">
-          <h2 class="article-title">DesignXYZ様</h2>
-          <div class="article-body">
-            <p>
-              <img src="img/works-sample.jpg" alt="">
-            </p>
-            <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります（作品について一言）
-            </p>
-            <h3>URL</h3>
-            <p><a href="https://yahoo.co.jp" target="_blank" rel="noopener">https://yahoo.co.jp</a></p>
-            <h3>担当</h3>
-            <p>デザイン・コーディング</p>
-            <h3>サイトの目的</h3>
-            <p>サービスの認知と新規クライアントの獲得</p>
-            <h3>ターゲット</h3>
-            <p>テキストが入りますテキストが入ります</p>
-            <h3>デザインについて</h3>
-            <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。<br>テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-            </p>
-            <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-            </p>
-            <h3>コーディングについて</h3>
-            <p>
-              テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。
-            </p>
+          <h2 class="article-title"></h2>
+          <div class="work-show__info flex">
+            <div class="work-show__overview lt1">OVERVIEW</div>
+            <div>
+              <p class="work-show__abstract"></p>
+            </div>
           </div>
-          <div class="home-link">
-            <a href="./#works">Works一覧へ</a>
+
+            <p>
+              ここでは私の研究テーマについて、簡単にまとめる。
+            </p>
+           <h3>深層展開~概要~</h3>
+           最適化問題と呼ばれる特定の集合上で定義された実数値関数
+           または整数値関数についてその値が最小（もしくは最大）となる状態を解析する問題が存在する。
+           それを解くための手法が最適化手法であり、有名どころに「再急降下法」や「ニュートン法」などがある。<br>
+           深層展開は機械学習を用いた最適化手法の1つで、モデルベース設計と機械学習の双方の利点を併せ持っているとさている。
+           
+      
+           <img src="img/最適化手法.png" alt="saiteki">
+           <h3>深層展開~アルゴリズム~</h3>
+           深層展開は反復型アルゴリズムの計算過程を深層ニューラルネットワークに見立てて、埋め込んだ内部パラメータの
+           調整を行うことで最適化する。
+           <img src="img/アルゴリズム.png" alt="arugo">
           </div>
+         <h3>研究内容</h3>
+         この深層展開をPythonのPythorchと呼ばれるフレームワークを用いて実装していくのが大まかな研究内容で、その中でも私はこの深層展開を用いて
+         「イベントトリガ制御系の同時設計」に挑戦している。ここからはイベントトリガ制御系について簡単に説明する。
+
+         <h3>イベントトリガ制御系</h3>
+現在はタイムトリガ制御と呼ばれる制御手法が主流である。これは
+センサが観測した制御対象の状態から周期的に制御入力を更新する手法で、理論的な実装が容易であるというメリットがある。
+しかし、制御入力を更新する必要がない場合でもセンサから情報を受け取るため無駄な通信コストがかかってしまう。
+そこで考案されたのが
+イベントトリガ制御である。これはある条件を満たした場合のみセンサから状態を送信するという手法で、
+省エネルギが求められる現代において、注目を集めている。
+<h3>研究のモチベーション</h3>
+イベントトリガ制御系は、通信タイミングを決定するイベントトリガと、制御入力を決定するコントローラという2つの設計対象が存在する。
+それらは挙動が互いの動作に依存しており"Dual effect"と呼ばれる制御信号の影響によって最適制御を考えるのが非常に難しいとされている。
+従来法ではコントローラとイベントトリガをある仮定の下分離して設計していたが、最適性が犠牲になっていた。
+<br>そこで本研究では深層展開を用いてイベントトリガとコントローラを同時に設計することでイベントトリガ制御系の最適制御を実現することを目的としている。
+<img src="img/イベントトリガ.png" alt="Event">
+
+<h3>研究成果</h3>
+<h4>SCI(システム制御情報学会研究発表講演会)論文</h4>
+5/25日に学会発表。その後J-Stageに乗るのでその後追加する
+<h4>離散時間線形時不変システムでのDETC(Deep unfolding Event Trigger)</h4>
+<h4>連続時間線非形時不変システムでのDETC</h4>
+
+        
         </div>
       </article>
 

@@ -16,14 +16,15 @@
   <link href="css/ress.css" media="all" rel="stylesheet" type="text/css" />
   <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="img/favicon.ico" />
-  <link rel=”canonical” href=”URLが入る” />
+  <link rel="canonical" href="URLが入る" />
 </head>
 
 <body>
   <div class="wrapper">
+    <div class="Cross"></div>
 
     <!-- header -->
-    <header class="header ">
+    <header class="header">
       <div class="container">
         <h1 class="header-logo">
           <a href=".">YUTARO TAKEUCHI</a>
@@ -31,6 +32,7 @@
         <nav class="gnav">
           <ul class="gnav-list">
             <li class="gnav-item"><a href="#works">WORKS</a></li>
+            <li class="gnav-item"><a href="#research">RESEARCH</a></li>
             <li class="gnav-item"><a href="#skill">SKILL</a></li>
             <li class="gnav-item"><a href="#about">ABOUT</a></li>
             <li class="gnav-item"><a href="#contact">CONTACT</a></li>
@@ -41,33 +43,43 @@
     <!-- /header -->
 
     <main class="content">
-
       <!-- mv -->
-      <div class="mv">
+      <div class="mv bg_pattern">
         <div class="mv-container">
           <p class="mv-title">YUTARO TAKEUCHI</p>
           <p class="mv-subtitle">PORTFOLIO</p>
           <p class="mv-text">
             立命館大学M1-武内勇太朗<br>
-          プログラミングが趣味で個人利用プログラムを作成している。<br>
+            プログラミングが趣味で個人利用プログラムを作成している。<br>
           </p>
         </div>
       </div>
       <!-- /mv -->
 
+      <!-- My study-->
+      <section class="Research section bg_pattern" id="research">
+        <div class="research-container">
+          <h2 class="title">RESEARCH</h2>
+          <h3 class="research-tema">研究テーマ：「深層展開によるイベントトリガ制御系の設計」</h3>
+          <p>
+            深層展開とは機械学習を用いた最適化手法の1つで、モデルベース設計と機械学習の双方の利点をいかした技術として注目を浴びている。この手法を用いてイベントトリガ制御系の設計を考案する。
+            研究についての詳しい内容は<a href="works-kenkyu.html">こちら</a>
+          </p>
+        </div>
+      </section>
+      <!-- /My study-->
+
       <!-- works -->
-      <section class="works section" id="works">
-        <div class="container">
-          <h2 class="title">WORKS</h2>
+          <h2 class="title section bg_pattern">WORKS</h2>
           <div class="works-list">
             <a class="works-item" href="works-apeiria.html">
               <div class="works-img"><img src="img/works-sample-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
+              <p class="works-name">人工知能内蔵チャットボット「アペイリア」</p>
               <p class="works-info">Design / Coding(Responsive)</p>
             </a>
             <a class="works-item" href="works-honyaku.html">
               <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
+              <p class="works-name">理系論文翻訳アプリ「翻訳くん」</p>
               <p class="works-info">Design / Coding(Responsive) / WordPress</p>
             </a>
             <a class="works-item" href="works-kenkyu.html">
@@ -75,14 +87,13 @@
               <p class="works-name">作品名が入る</p>
               <p class="works-info">Design</p>
             </a>
-  
           </div>
         </div>
       </section>
       <!-- /works -->
 
       <!-- skill -->
-      <section class="skill section" id="skill">
+      <section class="skill section bg_pattern" id="skill">
         <div class="container">
           <h2 class="title">SKILL</h2>
           <div class="skill-list">
@@ -90,8 +101,7 @@
               <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
               <div class="skill-body">
                 <h3 class="skill-name">HTML5/CSS3</h3>
-                <p class="skill-text">
-                  独学で勉強。少なくともこのポートフォリオを作成できるくらいのスキルは保有
+                <p class="skill-text">独学で勉強。少なくともこのポートフォリオを作成できるくらいのスキルは保有</p>
               </div>
             </div>
             <div class="skill-item">
@@ -102,6 +112,7 @@
                   メインスキル。大学の研究や個人プログラムの作成など、ほとんどPythonを使用している。
                   何をするにもこの言語に頼っている。
                   作成物はWorkに記載
+                </p>
               </div>
             </div>
             <div class="skill-item">
@@ -110,6 +121,7 @@
                 <h3 class="skill-name">C言語</h3>
                 <p class="skill-text">
                   大学の授業で習った程度.一応授業のアシスタントとして1回生に教えれる程度には身についている。
+                </p>
               </div>
             </div>
             <div class="skill-item">
@@ -119,36 +131,28 @@
                 <p class="skill-text">
                   一時期バイトで使用して使用していた。基礎的な関数は理解している。
                   バイトではエクセルで商品マスタを作成し、そこから楽天RMSとYahooショッピングに流し込むCSVが自動で作成されるようなものを組んでいたので割と高度なこともできるはず
-        
-                  
-    
+                </p>
               </div>
             </div>
-            
             <div class="skill-item">
               <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
               <div class="skill-body">
                 <h3 class="skill-name">VBA</h3>
-                <p class="skill-text">
-                 バイトのマスタ作成をしていたころ、関数だけでは実現できなかったものはVBAを組んでいた。
-              基本的なことはできるはず。
+                <p class="skill-text">バイトのマスタ作成をしていたころ、関数だけでは実現できなかったものはVBAを組んでいた。基本的なことはできるはず。</p>
               </div>
             </div>
             <div class="skill-item">
               <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
               <div class="skill-body">
                 <h3 class="skill-name">Photoshop</h3>
-                <p class="skill-text">
-                 一時期バイトで使っていたので基礎的なことはできる。
-                 Adobeライセンスが高いので今は使っていない
+                <p class="skill-text">一時期バイトで使っていたので基礎的なことはできる。Adobeライセンスが高いので今は使っていない</p>
               </div>
             </div>
             <div class="skill-item">
               <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
               <div class="skill-body">
                 <h3 class="skill-name">Illustrator</h3>
-                <p class="skill-text">
-                 Photoshopと同じ状況
+                <p class="skill-text">Photoshopと同じ状況</p>
               </div>
             </div>
             <div class="skill-item">
@@ -158,26 +162,21 @@
                 <p class="skill-text">
                   大学の研究で使用しているため基礎的なことは理解している。<br>
                   主に使用しているフレームワークは「pythorch」
-
-    
+                </p>
               </div>
             </div>
             <div class="skill-item">
               <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
               <div class="skill-body">
                 <h3 class="skill-name">制御工学</h3>
-                <p class="skill-text">
-                  一応大学の専攻。基本的なことは理解しているはず
-                  
+                <p class="skill-text">一応大学の専攻。基本的なことは理解しているはず</p>
               </div>
             </div>
             <div class="skill-item">
               <p class="skill-img"><img src="img/icon_skill.png" alt=""></p>
               <div class="skill-body">
                 <h3 class="skill-name">VScode</h3>
-                <p class="skill-text">
-                  メインエディタ。いくつか試したがこれが一番使いやすい
-                  
+                <p class="skill-text">メインエディタ。いくつか試したがこれが一番使いやすい</p>
               </div>
             </div>
           </div>
@@ -186,7 +185,7 @@
       <!-- /skill -->
 
       <!-- about -->
-      <section class="about section" id="about">
+      <section class="about section bg_pattern" id="about">
         <div class="container">
           <h2 class="title">ABOUT</h2>
           <div class="profile">
@@ -195,13 +194,12 @@
             </p>
             <div class="profile-body">
               <p>
-          立命館大学　理工学研究科　電機システム専攻　修士1回生　
-          <br>研究テーマ：「時相深層展開によるイベントトリガ制御系の同時設計」<br><br>
-          エンジニア志望の大学院生。趣味はプログラミングと読書。個人的にAIに強い興味がある。
-          大学院ではサイバーフィジカルシステム研究室に所属している。<br>
-          研究内容をざっくり説明すると機械学習を用いて、従来法では難しいとされているイベントトリガ制御(特に非線形)の最適制御法を実現するというものである。(詳しくはworkに)
-
-          
+                立命館大学　理工学研究科　電機システム専攻　修士1回生　
+                <br>研究テーマ：「時相深層展開によるイベントトリガ制御系の同時設計」<br><br>
+                エンジニア志望の大学院生。趣味はプログラミングと読書。個人的にAIに強い興味がある。
+                大学院ではサイバーフィジカルシステム研究室に所属している。<br>
+                
+              </p>
             </div>
           </div>
         </div>
@@ -209,19 +207,19 @@
       <!-- /about -->
 
       <!-- contact -->
-      <section class="contact section" id="contact">
+      <section class="contact section bg_pattern" id="contact">
         <div class="container">
           <h2 class="title">CONTACT</h2>
           <p class="lead">
             お問い合わせは、<br class="sp-only">メールにてお願いいたします。
           </p>
           <div class="contact-list">
-            
             <span class="contact-item">sachyand0515sachy@gmail.com</span>
           </div>
         </div>
       </section>
       <!-- /contact -->
+
       <div class="page-top" id="js-page-top">
         <span class="material-icons-outlined">expand_less</span>
       </div>
@@ -232,7 +230,6 @@
       <div class="copyright">&copy;TARO YAMADA</div>
     </footer>
     <!-- /footer -->
-
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type='text/javascript' src="js/script.js"></script>

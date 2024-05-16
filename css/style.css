@@ -1,5 +1,5 @@
 body {
-  font-family: "Montserrat","Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   font-size: 15px;
   letter-spacing: .05em;
   color: #333;
@@ -17,8 +17,6 @@ img {
   vertical-align: bottom;
   border-style: none;
 }
-
-
 
 .pc-only {
   display: block;
@@ -39,9 +37,7 @@ img {
   padding: 90px 0;
 }
 
-.section:nth-of-type(odd) {
-  background-color: #f7f7f7;
-}
+
 
 .container {
   max-width: 1340px;
@@ -77,7 +73,7 @@ img {
   z-index: 1;
   width: 100%;
   background-color: #fff;
-  box-shadow: 0 5px 10px -6px rgba(0,0,0,.1);
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, .1);
 }
 
 .header .container {
@@ -119,6 +115,7 @@ img {
   letter-spacing: .05em;
   color: #333;
 }
+
 .gnav-item a:after {
   position: absolute;
   bottom: 0;
@@ -158,6 +155,7 @@ img {
   margin-bottom: 5px;
   letter-spacing: .1em;
 }
+
 .mv-subtitle {
   font-size: 20px;
   font-weight: bold;
@@ -256,14 +254,17 @@ img {
   max-width: 800px;
   margin: 0 auto;
 }
+
 .profile-img {
   width: 20%;
   margin-right: 30px;
   border-radius: 50%;
 }
+
 .profile-img img {
   border-radius: 50%;
 }
+
 .profile-body {
   flex: 1;
 }
@@ -291,6 +292,7 @@ img {
 .contact-text {
   margin-top: 10px;
 }
+
 /*--------------------------------
  ページトップ
 ---------------------------------*/
@@ -451,6 +453,7 @@ img {
   .mv-title {
     font-size: 30px;
   }
+
   .mv-subtitle {
     font-size: 16px;
     margin-bottom: 20px;
@@ -508,6 +511,7 @@ img {
   .profile {
     display: block;
   }
+
   .profile-img {
     width: 150px;
     margin: 0 auto;
@@ -547,4 +551,14 @@ img {
     line-height: 1.7;
     margin-bottom: 20px;
   }
+}
+
+/* 背景パターン */
+
+.bg_pattern{
+  /* background-image: url("../img/back.jpg"); */
+  background-attachment: fixed; /* 背景を固定 */
+  background-size: cover; /* 背景がセクション全体を覆うようにする */
+  background-repeat: no-repeat; /* 背景が繰り返されないようにする */
+  background-position: center center; /* 背景が中央に配置されるようにする */
 }
