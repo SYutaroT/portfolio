@@ -18,3 +18,10 @@ $(function () {
   });
 
 });
+$(window).on('scroll', function() {
+  if ($(window).scrollTop() > 0) {
+    $('.bg_overlay').addClass('scrolled');
+  } else {
+    $('.bg_overlay').removeClass('scrolled');
+  }
+});
