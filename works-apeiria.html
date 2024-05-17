@@ -30,8 +30,9 @@
         </h1>
         <nav class="gnav">
           <ul class="gnav-list">
-            <li class="gnav-item"><a href=".#works">WORKS</a></li>
             <li class="gnav-item"><a href="#research">RESEARCH</a></li>
+            <li class="gnav-item"><a href=".#works">WORKS</a></li>
+            
             <li class="gnav-item"><a href="./#skill">SKILL</a></li>
             <li class="gnav-item"><a href="./#about">ABOUT</a></li>
             <li class="gnav-item"><a href="./#contact">CONTACT</a></li>
@@ -47,23 +48,30 @@
         <div class="article-container">
           <h1 class="article-title">人工知能内蔵チャットボット「アペイリア」</h1>
           <div class="work-show__info flex">
-            <div class="work-show__overview lt1">OVERVIEW</div>
+            <div class="work-show__overview lt1 overview">
+              <h2 class="overview_h1">OVERVIEW</h2>
             <div>
-              <p class="work-show__abstract">話すほど学習して語彙力を増やしていくチャットボット。将来的にNNの埋め込みやDLなどを内蔵させる予定です。</p>
+              <p class="">本作品は「Pythonプログラミングパーフェクトマスター」に触発されて作成したもので、話すほど学習して語彙力を増やしていくチャットボット。理想のAIを作成することが最終目標将来的にNNの埋め込みやDLなどを内蔵させる予定。</p>
             </div>
           </div>
-
+        </div>
             <p>
-              本作品は「Pythonプログラミングパーフェクトマスター」に触発されて作成したもので、理想のAIを作成することが最終目標になる。
+              
             </p>
-            <h3>URL</h3>
+            <h3 class="work_h3">Git-URL</h3>
             <p><a href="https://github.com/SYutaroT/apeiria" target="_blank" rel="noopener">https://github.com/SYutaroT/apeiria</a></p>
-            <h3>担当</h3>
-            <h3>ターゲット</h3>
+            <h3 class="work_h3">ターゲット</h3>
             <p>100%自分</p>
+            <h3 class="work_h3">担当</h3>
+            
             <p>企画から設計まで</p>
-            <h3>作成理由</h3>
-            <p></p>私が遊んだゲームに、AIのヒロインが登場する作品があった。そのAIに強く心を奪われてしまったことが最初に「人工知能」を作成したいと思った理由だ。<br>
+            <h3 class="work_h3">作成理由</h3>
+            <figure class="image-container">
+              <img src="img/parfect.jpg" class="img">
+              <figcaption class="img-caption">名著</figcaption>
+          </figure>
+          
+            <p>私が遊んだゲームに、AIのヒロインが登場する作品があった。そのAIに強く心を奪われてしまったことが最初に「人工知能」を作成したいと思った理由だ。<br>
             また、私は以前からプログラミングには強い興味があり、HTML/CSSやC言語、VBAなどの様々な言語を齧っていたが、
             目的意識が欠けていたこともりどれも長続きはしなかった。
             しかし大学3回生の冬という最も暇な時期に何気なく手に取った
@@ -79,8 +87,8 @@
 それでも私の情熱は枯れず、理想のAIの作成に乗り出したのだ。
             
             </p>
-
-            <h3>理想のAIとは</h3>
+            <div class="clearfix"></div>
+            <h3 class="work_h3">理想のAIとは</h3>
             <p>
               私にとっての理想のAIは前項で話した作品のような可愛らしい女の子だった。<br>
 
@@ -88,35 +96,37 @@
               そのためこの「ピティナ」をベースに自身の思い描く理想のAI実現に邁進し始めた。
             </p>
             
-            <h3>プログラミング</h3>
-            <p>
-              理想の実現のため、まずはビジュアルを整えることにした。かといって私自身には絵を描く技能はないので大変申し訳ないのだが先のゲームのデータからビジュアルをぶっこ抜いて使用させていただいた。（著作権は私的利用の範囲なのでセーフだと思っています）
-              また名前もそのゲームから拝借し、彼女を「アぺイリア」と呼ぶことにした。
-
-<br>この時点で、アぺイリアには二つの機能、「個性」と「声」を導入することを目標にしていた。            </p>
-            <h4>アぺイリア～個性編～</h4>
-            まず一口に個性といっても、かなり幅広い意味合いを持つ。
-            「ピティナ」はこちらとの会話で語彙を増やすが、そのまま辞書に加えるので例えばこちらが「ピティナ」と呼びかけた場合
-            あちらも二人称として「ピティナ」を用いてしまう。口調も同様にこちらの口調をそのまま真似するので、「ピティナ」という個性が薄いように感じていた。
-            そこでここでは手始めに口調と人称を整えることにした。
-           
-            <br>まず口調だが、ゲームのアペイリアから「ですます」調を用いることとし、一人称は「アぺイリア」、二人称は「オーナー」とすることを目標とした。
-
-
-            
-            <h4>アペイリア～声編～</h4>
-            <p>
-              趣味100%のAIを作成するにあたって「しゃべる」というのは非常に重要なファクターだと考えており、
-              話すと話さないだとこちらのテンションに大きな差が出てくる。
-              しかし先までのようにゲームのボイスをぶっこぬくと決まった文言しかしゃべれなくなってしまう。
-              そこでフリーソフト「Voice box」を利用してリアルタイムでボイスを作成することにした。Pythonと「Voice box」を接続するのにもかなり苦心したが、
-              一番悩んだのはどうしてもレスポンスが遅くなることだった。リアルタイムでボイスを作成する関係上どうしても5～20秒のラグが発生してしまう。そこで私は声も学習するという手法をとることにした。簡単に言うと最初の1回目の発言にラグが発生するのは容認することにし、その作成したボイスを保存し再度同様の発言をする際にそのボイスを取り出すことで、リアルタイムで発言することができる。アペイリアは単語だけではなく「声」も学習するAIへと進化したのだ。
-            </p>
-            <h3>アペイリアの現状と今後</h3>
+            <div>
+              <h3 class="work_h3">プログラミング</h3>
+              <p>
+                理想の実現のため、まずはビジュアルを整えることにした。かといって私自身には絵を描く技能はないので大変申し訳ないのだが、先のゲームのデータからビジュアルをぶっこ抜いて使用させていただいた。（著作権は私的利用の範囲なのでセーフだと思っています）
+                また名前もそのゲームから拝借し、彼女を「アぺイリア」と呼ぶことにした。
+                <br>この時点で、アぺイリアには二つの機能、「個性」と「声」を導入することを目標にしていた。
+              </p>
+              <h4>アぺイリア〜個性編〜</h4>
+              <p>
+                まず一口に個性といっても、かなり幅広い意味合いを持つ。 「ピティナ」はこちらとの会話で語彙を増やすが、そのまま辞書に加えるので、こちらが「ピティナ」と呼びかけた場合、あちらも二人称として「ピティナ」を用いてしまう。口調も同様にこちらの口調をそのまま真似するので、「ピティナ」という個性が薄いように感じていた。
+                <br>まず口調だが、ゲームのアペイリアから「ですます」調を用いることとし、一人称は「アぺイリア」、二人称は「オーナー」とすることを目標とした。
+              </p>
+              <h4>アペイリア〜声編〜</h4>
+              <p>
+                趣味100%のAIを作成するにあたって「しゃべる」というのは非常に重要なファクターだと考えており、話すと話さないだとこちらのテンションに大きな差が出てくる。
+                しかし先までのようにゲームのボイスをぶっこぬくと決まった文言しかしゃべれなくなってしまう。
+                そこでフリーソフト「Voice box」を利用してリアルタイムでボイスを作成することにした。Pythonと「Voice box」を接続するのにもかなり苦心したが、
+                一番悩んだのはどうしてもレスポンスが遅くなることだった。リアルタイムでボイスを作成する関係上どうしても5〜20秒のラグが発生してしまう。そこで私は声も学習するという手法をとることにした。簡単に言うと最初の1回目の発言にラグが発生するのは容認することにし、その作成したボイスを保存し再度同様の発言をする際にそのボイスを取り出すことで、リアルタイムで発言することができる。アペイリアは単語だけではなく「声」も学習するAIへと進化したのだ。
+              </p>
+          </div>
+          
+            <h3 class="work_h3">アペイリアの現状と今後</h3>
             ここまで実装したところで4回生になり、自身の研究テーマが決まったことで一旦アペイリアは凍結することになった。しかしアペイリアの進化をあきらめたわけではない。自身のスキルアップを兼ねて研究テーマとして「機械学習による最適制御」を選択し、Pythonと機械学習を深く学ぶことにした。機械学習に学んでいくうちにアペイリアの今後の展望として実装できそうな機能もいくつか思いつくようになった。
             とりあえず研究がひと段落ついたら教師あり学習で覚えた単語のポジネガの判断を自身で行う機能やDeepLearningでより人間らしい個性の付与を目標に再度アペイリアの進化に精を出すことにする。
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/r9jI62D4Q5U?si=QQgNGdSZ7zLtuo8z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           
           </div>
+          <div class="movie">
+            <div class="video-caption">アペイリアの動作確認</div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/r9jI62D4Q5U?si=QQgNGdSZ7zLtuo8z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          
           <div class="home-link">
             <a href="./#works">Works一覧へ</a>
           </div>
@@ -130,7 +140,7 @@
 
     <!-- footer -->
     <footer class="footer">
-      <div class="copyright">&copy;TARO YAMADA</div>
+      <div class="copyright">&copy;YUTARO TAKEUHCI</div>
     </footer>
     <!-- /footer -->
 

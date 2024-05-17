@@ -57,7 +57,15 @@ img {
   letter-spacing: .05em;
   color: #333;
 }
-
+.title2 {
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 1;
+  
+  text-align: center;
+  letter-spacing: .05em;
+  color: #333;
+}
 .lead {
   font-size: 16px;
   line-height: 1.8;
@@ -176,9 +184,12 @@ img {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: -40px;
+  
+  ;
 }
 
 .works-item {
+
   width: 31.74603%;
   margin-right: 1.58730%;
   margin-bottom: 40px;
@@ -187,14 +198,32 @@ img {
 
 .works-item:hover {
   opacity: .9;
+  background-color: #eaeaea; /* マウスオーバー時の背景色 */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* 影を追加 */
+  
 }
 
+
+.works-item:hover .works-img img {
+  transform: scale(1.05); /* マウスオーバー時に画像を少し大きく */
+}
+
+.works-name, .works-info {
+  transition: color 0.3s; /* 色のアニメーション */
+}
+
+.works-item:hover .works-name, .works-item:hover .works-info {
+  color: #1ca9e3; /* マウスオーバー時のテキスト色 */
+}
 .works-item:nth-of-type(3n) {
   margin-right: 0;
+  
 }
 
 .works-img img {
-  border: 1px solid #e6e6e6;
+  background-color: white;
+  border: 1px solid red;
+  transition: transform 0.3s; /* 画像の変形アニメーション */
 }
 
 .works-name {
@@ -556,9 +585,116 @@ img {
 /* 背景パターン */
 
 .bg_pattern{
-  /* background-image: url("../img/back.jpg"); */
+  background-image: url("../img/back.jpg");
   background-attachment: fixed; /* 背景を固定 */
   background-size: cover; /* 背景がセクション全体を覆うようにする */
   background-repeat: no-repeat; /* 背景が繰り返されないようにする */
   background-position: center center; /* 背景が中央に配置されるようにする */
 }
+
+.overview {
+  display: flex;        /* Flexbox を使用し、アイテムを行で並べる */
+  justify-content: space-between; /* 左右にアイテムを分散させる */
+  align-items: center;  /* 縦方向の中央揃え */
+  padding: 0.5em 1em;
+  margin: 4em 0;
+  
+  border: double 5px #4ec4d3;
+  
+}
+.overview p {
+  margin: 0;            /* p タグの外側の余白を無くす */
+  padding: 0;           /* p タグの内側のパッドを無くす */
+  flex: 2;              /* h1 に対して2倍の幅を取る */
+}
+.overview_h1 {
+  color: red;
+  margin-right: 5;
+  margin: 0;            /* 余白なし */
+  flex: 1;              /* 利用可能なスペースを均等に使用 */
+  margin-right: 2em;  /* 右側にスペースを追加 */
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+}
+
+.work_h3{
+  padding:0.5em 0; /*上下の余白 左右の余白*/
+  border-top:solid 3px #4472C4; /*線の種類 太さ 色*/
+  border-bottom:solid 3px #4472C4; /*線の種類 太さ 色*/
+}
+
+
+.article-container p{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.image-container {
+  float: right; /* 画像コンテナを右側にフロート */
+  width: 400px; /* コンテナの幅を設定 */
+  margin: 0 2em 1em 0; /* 右側と上にマージンを設定 */
+  padding: 1em; /* 内側のパッドを設定 */
+  background-color: rgba(0, 0, 0, 0.7); /* 背景色を半透明の黒に設定 */
+  box-sizing: border-box; /* ボックスサイズの計算方法をborder-boxに設定 */
+  overflow: hidden; /* コンテナ内のフロート要素がはみ出ないように */
+}
+
+.img {
+  width: 100%; /* コンテナの幅に画像の幅を合わせる */
+  height: auto; /* 画像の高さを自動調整 */
+  vertical-align: bottom; /* 画像を底揃えに設定 */
+  
+}
+
+.img-caption {
+  color: white; /* キャプションの文字色は白 */
+  text-align: center; /* テキストを中央揃えに */
+
+  display: block; /* キャプションをブロック要素として表示 */
+}
+
+/* 画像の下に追加のスペースが必要な場合 */
+.clearfix {
+  clear: both;         /* floatを解除 */
+}
+/* リストタイトルのスタイル */
+h4 {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 30px; /* テキストからマーカーまでの十分なスペースを確保 */
+}
+
+h4::before {
+  content: "•"; /* リストマーカーとして使う文字（ここでは黒丸） */
+  position: absolute;
+  left: 0; /* タイトルの左端に配置 */
+  color: black; /* マーカーの色 */
+  font-size: 20px; /* マーカーのサイズ */
+  line-height: 20px; /* マーカーの行の高さ */
+}
+
+
+.content {
+  overflow: hidden;    /* floatされた要素を含むコンテナの高さを適切に調整 */
+}
+.movie{
+  position: relative; /* コンテナに相対位置を指定 */
+  
+    width: 50%;          /* 適切な幅を設定 */
+    margin: 0 auto;      /* 上下のマージンを0にし、左右のマージンを自動で設定 */
+  
+  
+}
+
+.video-caption {
+  position: absolute; /* 説明文を絶対位置で配置 */
+  top: 0; /* 上端から0pxの位置 */
+  left: 0; /* 左端から0pxの位置 */
+  width: 100%; /* コンテナの幅に合わせる */
+  background-color: rgba(0, 0, 0, 0.7); /* 背景色を半透明の黒に設定 */
+  color: white; /* 文字色を白に設定 */
+  text-align: center; /* テキストを中央揃えに設定 */
+  padding: 10px 0; /* 上下に10pxのパディングを追加 */
+  box-sizing: border-box; /* ボックスサイズの計算方法を変更 */
+}
+
