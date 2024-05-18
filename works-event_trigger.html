@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <meta property='og:type' content='website'>
+  <meta property='og:title' content='Apeiria ポートフォリオ'>
+  <meta property='og:url' content='URLが入る'>
+  <meta property='og:description' content='Apeiriaのポートフォリオ'>
+  <meta property="og:image" content="img/ogp.png">
+  <meta name="description" content="Apeiriaのポートフォリオ" />
+  <title>Apeiriaのポートフォリオ</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+  <link href="css/ress.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel=”canonical” href=”URLが入る” />
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- header -->
+    <header class="header ">
+      <div class="container">
+        <h1 class="header-logo">
+          <a href=".">YUTARO TAKEUCHI_TOP</a>
+        </h1>
+        <nav class="gnav">
+          <ul class="gnav-list">
+            <li class="gnav-item"><a href="./#research">RESEARCH</a></li>
+            <li class="gnav-item"><a href="./#works">WORKS</a></li>
+            <li class="gnav-item"><a href="./#skill">SKILL</a></li>
+            <li class="gnav-item"><a href="./#about">ABOUT</a></li>
+            <li class="gnav-item"><a href="./#contact">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <main class="content">
+
+      <article class="article">
+        <div class="article-container">
+          <h1 class="article-title">イベントトリガ制御器</h1>
+          <div class="work-show__info flex">
+            <div class="work-show__overview lt1 overview">
+              <h2 class="overview_h1">OVERVIEW</h2>
+            <div>
+              <p class="">研究テーマ「深層展開によるイベントトリガ制御の同時設計」において研究の理論実験のために作成したプログラムの解説</p>
+            </div>
+          </div>
+        </div>
+            <p>
+              
+            </p>
+            <h3 class="work_h3">Git-URL</h3>
+            <p><a href="https://github.com/SYutaroT/apeiria" target="_blank" rel="noopener">https://github.com/SYutaroT/apeiria</a></p>
+            <h3 class="work_h3">ターゲット</h3>
+            <p>学会発表</p>
+            <h3 class="work_h3">担当</h3>
+            
+            <p>理論とプログラミング</p>
+            <h3 class="work_h3">作成理由</h3>
+            
+            <p>私の研究テーマである「深層展開によるイベントトリガ制御の同時設計」のために作成。研究テーマについては<a href="works-kenkyu.html" class="Rink">こちら</a>
+            </p>
+            <div class="clearfix"></div>
+            <h3 class="work_h3">目的</h3>
+            <p>
+            論文"Dynamic Event-Triggered Control for Nonlinear Systems: A Small-Gain Approach"から非線形連続時不変システムを2種類引用し、
+            それぞれについてイベントトリガ制御器を設計する。
+            </p>
+            
+            <div>
+              <h3 class="work_h3">プログラム解説</h3>
+              <p>
+                このプログラムは幾つかのパーツに分かれているので、それぞれ解説していく。
+              </p>
+              <h4>parameter.py</h4>
+              <p>
+                これはその名の通り使用するパラメータを管理するプログラム。後述するプログラムはほとんどこれと直結しており、ここを書き換えるだけで一括でパラメータを変えられる。
+
+              </p>
+              <h4>DETC</h4>
+              <p>
+                メインとなるプログラム。これを実行することでイベントトリガ制御器に必要な4種のパラメータが訓練される。(詳しくは私の論文参照)
+                実験結果はparamater.pyで指定されたパラメータに従って生成されたファイルに入れられる。
+                解説はあとで
+              </p>
+              <h4>ETC.py</h4>
+              <p>論文"Dynamic Event-Triggered Control for Nonlinear Systems: A Small-Gain Approach"で提案されたイベントトリガ制御器を再現したもの。設計パラメータがあるので機能するのはあくまでの2つのモデルでのみ</del></p>
+              <h4>
+                makefig.py
+              </h4>
+              <p>paramater.pyで指定されている実験結果ファイルにアクセスし、その実行結果から評価、作図を行う。</p>
+
+
+          </div>
+          <div>
+            <h3 class="work_h3">DETC.pyの重要部分解説</h3>
+            <p>このプログラムが肝なので詳しく解説していく。</p>
+            <h4>乱数固定と保存</h4>
+           <p> プログラムの動作時間の計測とparameter.pyで決められた保存ファイルを作成する。
+            また再現性確保のため乱数を固定する。</p>
+            <pre><code class="python">
+              start_time = time.time()
+              # ?----------------------------------------------------------------保存
+              name = parameter.Folder
+              File = parameter.Dt
+              path = File + name+"R"
+              directory = os.path.dirname(path)
+              
+              # ディレクトリが存在しない場合、作成する
+              if not os.path.exists(directory):
+                  os.makedirs(directory)              
+              # ?----------------------------------------------------------------乱数固定
+              def seedinit(seed):
+                torch.manual_seed(int(seed))
+                np.random.seed(seed)
+          
+                  </code></pre><br>
+          <h4>ミニバッチ学習用のデータ生成</h4>
+          <p>ミニバッチ学習用の学習データを生成するクラス</p>
+          <pre><code>
+            class DisturbanceDataset(Dataset):  # ミニバッチ学習用の学習データ作成プログラム
+              def __init__(self, num_samples, N, T, minw, maxw, alpha, beta2):
+                  self.disturbances = [torch.tensor(beta.rvs(alpha, beta2, size=(
+                      N, T - 1), loc=minw, scale=maxw - minw)) for _ in range(num_samples)]
+          
+              def __len__(self):
+                  return len(self.disturbances)
+          
+              def __getitem__(self, idx):
+                  return self.disturbances[idx]
+          </code></pre><br>
+<h4>深層展開クラスの動作</h4>
+<p>ここがプログラムの根幹部分となる。少々長くなるが重要部分の解説をする。</p>
+<br>細かいパラメータを指定。オーバライドやスーパークラスの継承などpython特有の概念が混じっている。
+<pre><code>
+  class CSTR(nn.Module):  # 深層展開のメインクラス
+    def __init__(self, T, N, epoch, device, path):  # パラメータの定義
+        super(CSTR, self).__init__()
+        self.device = device
+        <div class="ellipsis">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        self.datasize = 32
+</code></pre>
+<p>今回扱うものが連続時間システムだが、離散時間しか扱うことができない。そのため制御プラントを4次のルンゲクッタ法で離散化する必要がある。</p>
+<pre><code>
+  def f(self, x, u):  # 4次のルンゲクッタ法による離散化
+    h = self.h
+    Rx = torch.zeros(2, 1, dtype=torch.double).to(self.device)
+    <div class="ellipsis">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    x1 = x[0]
+    x2 = x[1]
+    return Rx
+</code></pre><br>
+<p>イベントトリガ条件を設定。φについては論文参照</p>
+<pre><code>
+  def phi(self, x, Ix):  # !柔軟なトリガ
+    Rx = torch.zeros(2*self.N, 1, dtype=torch.double).to(self.device)
+    for i in range(0, self.N):
+        Rx[i] = x[i]
+    for i in range(0, self.N):
+        Rx[i+self.N] = Ix[i]
+    return Rx.T@self.L@Rx+self.M@Rx+self.Mo
+</code></pre><br>
+<p>ここが機械学習の訓練を行うプログラム。普通のPythorchでの機械学習プログラムと異なるのは学習率スケジューラとLR Range Test 、インクリメンタル学習が実装されている点だ</p>
+<pre><code>
+  def utrain(self):  # !最重要、ここで訓練
+    torch.autograd.set_detect_anomaly(True)
+    optimizer = optim.AdamW(
+        self.parameters(), lr=self.lr)  # 最適化手法、今回はAdamW
+        <div class="ellipsis">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+</code></pre><br>
+<h4>
+学習スケジューラ
+</h4>
+<p>学習率
+  は機械学習の最適化において学習可能パラメータを一度にどの程度変化させるかを表すハ
+  イパーパラメータである．値が大きいほど学習可能パラメータの変化量が大きくなり学習速度が向
+  上するが，極小値へ収束しない可能性が高まる．逆に学習率が小さいと，学習速度は遅くなるが極
+  小値が見つけやすくなる．そのため適切な学習率を設定することが機械学習では重要になる．
+  学習率スケジューラは動的に学習率を変化させるプログラムで，最初は大きな学習率で学習を進め，徐々に小さくすることで速度と収束性の両立が期待できる．
+  <br>ここでは"CosineAnnealingWarmRestart"と呼ばれるコサイン関数にしたがって学習率を減少させるものを実装する。</p>
+<pre><code>
+  def utrain(self):  # !最重要、ここで訓練
+    cosine_scheduler = CosineAnnealingWarmRestarts(optimizer, T_0=int(self.T/5), T_mult=4, eta_min=1e-7)  # 学習率スケジューラ、今回は全ステップの1/5分学習率を減少、その後再度減少
+        <div class="ellipsis">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+          current_lr = optimizer.param_groups[0]['lr']
+          loss_history.append(loss.item())
+          lr_history.append(current_lr)
+          cosine_scheduler.step()
+</code></pre><br>
+<h4>LR Range Test</h4>
+<p>最適な学習率を図るためのテスト<br>
+Learning Rate Range Test は学習率を非常に小さな値からサイクルごとに増加させ，損失が急激に減少し始める点と，損失が再び増加あるいは停滞が始まる点を発見し，この2点の間，または損失が最小になる点付近を初期学習率として扱う手法
+</p>
+<pre><code>
+  def utrain(self):  # !最重要、ここで訓練
+  liner_scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: 10 ** epoch)  # LR 
+        <div class="ellipsis">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        liner_scheduler.step()
+        current_lr = optimizer.param_groups[0]['lr']
+        loss_history.append(loss.item())
+        lr_history.append(current_lr)
+</code></pre><br>
+<h4>インクリメンタル学習</h4>
+<p>反復型アルゴリズムを展開したFNNの層数Tを1からTmaxまでインクリメントしながら，各Tにおいてミニバッチ学習を行う手法。
+深層展開で生じる可能性のある勾配消失問題，すなわち各層の勾配で小さい値が続いた場合に勾配が 0 とみなされ学習が進まなくなる現象を防ぐことができる。
+</p>
+<pre><code>
+  def utrain(self):  # !最重要、ここで訓練
+        for i in range(1, self.T):  # インクリメンタル学習、T_maxまで層を増やしながら学習
+        <div class="ellipsis">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+</code></pre><br>
+<h3 class="work_h3">動作結果</h3>
+<p>論文参照。結論だけ言えば既存手法より更新回数、評価関数の値ともに減少させることができた。</p>
+
+</div>
+
+          <div class="home-link">
+            <a href="./#works">Works一覧へ</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="page-top" id="js-page-top">
+        <span class="material-icons-outlined">expand_less</span>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="copyright">&copy;YUTARO TAKEUHCI</div>
+    </footer>
+    <!-- /footer -->
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type='text/javascript' src="js/script.js"></script>
+</body>
+</html>
