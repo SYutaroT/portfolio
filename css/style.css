@@ -789,29 +789,36 @@ h4::before {
 .Rink{
   color: red;
 }
-pre {
-  background: #333;
-  color: #f8f8f2;
-  padding: 10px;
-  border-radius: 5px;
-  overflow: auto;
-}
-
-code {
-  font-family: 'Courier New', Courier, monospace;
-}
-.ellipsis {
+.code-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100px; /* 必要に応じて高さを調整 */
-  justify-content: space-between;
-  padding: 10px;
+  background-color: #2d2d2d;  /* 黒い箱の色 */
+  border-radius: 5px;
+  overflow: hidden;  /* 余分なコンテンツを隠す */
+  color: #fff;  /* コードの文字色を白に */
 }
 
-.dot {
-  width: 5px;
-  height: 5px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
+.line-numbers {
+  padding: 10px 5px;
+  background-color: #2d2d2d;  /* 黒い箱の色と一致 */
+  text-align: right;
+  border-right: 1px solid #555;
+  user-select: none;
+  color: #999;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6em;  /* 行番号の高さを調整 */
+}
+
+.line-numbers span {
+  display: block;
+  padding: 0 5px;
+}
+
+pre.code {
+  margin: 0;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre;
+  overflow: auto;
+  flex-grow: 1;
+  line-height: 1.5em;  /* コードの行間を行番号に合わせる */
 }
