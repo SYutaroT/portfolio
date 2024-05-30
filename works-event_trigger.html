@@ -17,6 +17,7 @@
   <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="img/favicon.ico" />
   <link rel=”canonical” href=”URLが入る” />
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=lang-python&skin=sunburst"></script>
 </head>
 
 <body>
@@ -48,6 +49,8 @@
           <h1 class="article-title">イベントトリガ制御器(工事中)</h1>
           <div class="work-show__info flex">
             <div class="work-show__overview lt1 overview">
+
+              <div class="work-show__info flex"></div>
               <h2 class="overview_h1">OVERVIEW</h2>
             <div>
               <p class="">研究テーマ<a href="works-kenkyu.html#result">「深層展開によるイベントトリガ制御系設計」</a>において研究の理論実験のために作成したプログラムの解説</p>
@@ -58,7 +61,7 @@
               
             </p>
             <h3 class="work_h3">Git-URL</h3>
-            <p><a href="https://github.com/SYutaroT/event1" target="_blank" rel="noopener">https://github.com/SYutaroT/event1</a></p>
+            <p><a href="https://github.com/SYutaroT/DeepUnfolding_Event/tree/main/NonLinier/Zhao_model1" target="_blank" rel="noopener">https://github.com/SYutaroT/DeepUnfolding_Event/tree/main/NonLinier/Zhao_model1</a></p>
             <h3 class="work_h3">ターゲット</h3>
             <p>学会発表</p>
             <h3 class="work_h3">担当</h3>
@@ -71,7 +74,7 @@
             <div class="clearfix"></div>
             <h3 class="work_h3">目的</h3>
             <p>
-            論文"Dynamic Event-Triggered Control for Nonlinear Systems: A Small-Gain Approach"から非線形連続時不変システムを2種類引用し、
+            論文"Dynamic Event-Triggered Control for Nonlinear Systems: A Small-Gain Approach"から非線形連続時不変システムを引用し、
             それぞれについてイベントトリガ制御器を設計する。
             </p>
             
@@ -92,11 +95,13 @@
                 解説はあとで
               </p>
               <h4>ETC.py</h4>
-              <p>論文"Dynamic Event-Triggered Control for Nonlinear Systems: A Small-Gain Approach"で提案されたイベントトリガ制御器を再現したもの。設計パラメータがあるので機能するのはあくまでの2つのモデルでのみ</del></p>
+              <p>論文"Dynamic Event-Triggered Control for Nonlinear Systems: A Small-Gain Approach"で提案されたイベントトリガ制御器を再現したもの。設計パラメータがあるのでどんなシステムでも動作するわけではない。</del></p>
               <h4>
-                makefig.py
+                DETC_makeFig.py
               </h4>
-              <p>paramater.pyで指定されている実験結果ファイルにアクセスし、その実行結果から評価、作図を行う。</p>
+              <p>DETC.pyで得られた訓練パラメータはResultファイルに保存される。
+                このプログラムは
+                その結果をもとに評価、作図を行う。</p>
 
 
           </div>
@@ -134,35 +139,7 @@
              <p><h5>21~22行目</h5>
               ミニバッチ処理のためのライブラリ。「Dataset」に訓練データを入れデータセットを生成する。「DataLoder」はデータセットをミニバッチに分けランダムに取り出すことが出来る。</p>
                <p><h5></h5></p>
-                             
-           <div class="code-container">
-            <div class="line-numbers">
-              <br>
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-              <span>6</span>
-              <span>7</span>
-              <span>8</span>
-              <span>9</span>
-              <span>10</span>
-              <span>11</span>
-              <span>12</span>
-              <span>13</span>
-              <span>14</span>
-              <span>15</span>
-              <span>16</span>
-              <span>17</span>
-              <span>18</span>
-              <span>19</span>
-              <span>20</span>
-              <span>21</span>
-
-            </div>
-            <pre class="code">
-              <code class="python">
+               <pre class="prettyprint linenums">
                 # ライブラリのインポート
                 import torch  # 機械学習用のライブラリ
                 import torch.nn as nn  # ニューラルネットワーク構築
@@ -183,36 +160,13 @@
                 import time
                 import winsound
                 from torch.utils.data import Dataset
-                from torch.utils.data import DataLoader
-              </code>
-            </pre>
-          </div>
+                from torch.utils.data import DataLoader</pre>
         <h4>保存と乱数の固定</h4>
+        <p>これは必須ではない</p>
         <p><h5>24行目</h5>時間の計測の開始。プログラムの動作時間を計測</p>
         <p><h5>26~34行目</h5>paramater.pyから保存ファイル名を入手し、保存ファイルを生成(あるなら何もしない)。</p>
         <p><h5>25~37行目</h5>シード値を固定して再現性を確保する。</p>
-
-        <div class="code-container">
-          <div class="line-numbers">
-            <br>
-            <span>24</span>
-            <span>25</span>
-            <span>26</span>
-            <span>27</span>
-            <span>28</span>
-            <span>29</span>
-            <span>30</span>
-            <span>31</span>
-            <span>32</span>
-            <span>33</span>
-            <span>34</span>
-            <span>35</span>
-            <span>36</span>
-            <span>37</span>
-
-          </div>
-          <pre class="code">
-            <code class="python">
+        <pre class="prettyprint linenums:24">
               start_time = time.time()
               # ?----------------------------------------------------------------保存
               path = parameter.Folder+parameter.Dt
@@ -226,10 +180,280 @@
               
               def seedinit(seed):
                   torch.manual_seed(int(seed))
-                  np.random.seed(seed)
-            </code>
+                  np.random.seed(seed)</pre>
+        
+                  <h4>ミニバッチ学習用のデータ作成</h4>
+        <p>機械学習ではメジャーなミニバッチ学習を行うためのデータを作成する。</p>
+        <p><h5>43行目</h5>クラスの作成</p>
+        <p><h5>44~46行目</h5>num_samples個分の一様分布に従う外乱(N次元)</p>
+        <p><h5>48~52行目</h5>ここでデータの長さを返したりする。Datasetを動かすのに必要程度の認識でよい</p>
+
+        <pre class="prettyprint linenums:43">
+              class DisturbanceDataset(Dataset):  # ミニバッチ学習用の学習データ作成プログラム
+                def __init__(self, num_samples, N, T, minw, maxw, alpha, beta2):
+                    self.disturbances = [torch.tensor(beta.rvs(alpha, beta2, size=(
+                        N, T - 1), loc=minw, scale=maxw - minw)) for _ in range(num_samples)]
+            
+                def __len__(self):
+                    return len(self.disturbances)
+            
+                def __getitem__(self, idx):
+                    return self.disturbances[idx]
+            
           </pre>
-        </div>
+        
+        <h4>連続時間システムの離散化</h4>
+      <p>ここでは連続時間システムを4次のルンゲクッタ法によって離散化する。離散時間システムを扱う場合h=1にすればよい。
+        ここは改良ポイントでN次元に対応していない。もし次元数3のシステムを動かす場合parameter.pyにx3_dotを追加し、
+        其々のパラメータに入れる引数にx3=x[3]を追加する必要がある。ここが唯一手動で変更する場所
+      </p>
+        <p><h5>55~59行目</h5>パラメータの設定</p>
+        <p><h5>61~85行目</h5>ここで離散化</p>
+
+        <pre class="prettyprint linenums:55">
+              class RungeKutta():
+                def __init__(self, device):
+                    self.h = parameter.h
+                    self.device = device
+                    self.N = parameter.N
+            
+                def f(self, x, u):  # 4次のルンゲクッタ法による離散化
+                    h = self.h
+                    Rx = torch.zeros(N, 1, dtype=torch.double).to(self.device)
+                    x1 = x[0]
+                    x2 = x[1]
+            
+                    k1_x1 = parameter.x1_dot(x1, x2, u)
+                    k1_x2 = parameter.x2_dot(x1, x2, u)
+            
+                    k2_x1 = parameter.x1_dot(x1, x2 + h / 2, u)
+                    k2_x2 = parameter.x2_dot(x1, x2 + h / 2, u)
+            
+                    k3_x1 = parameter.x1_dot(x1, x2 + h / 2, u)
+                    k3_x2 = parameter.x2_dot(x1, x2 + h / 2, u)
+            
+                    k4_x1 = parameter.x1_dot(x1, x2 + h, u)
+                    k4_x2 = parameter.x2_dot(x1, x2 + h, u)
+            
+                    x1_dot_avg = (k1_x1 + 2 * k2_x1 + 2 * k3_x1 + k4_x1) / 6
+                    x2_dot_avg = (k1_x2 + 2 * k2_x2 + 2 * k3_x2 + k4_x2) / 6
+            
+                    Rx[0] = x1 + h * x1_dot_avg
+                    Rx[1] = x2 + h * x2_dot_avg
+            
+                    return Rx</pre>
+
+
+
+        <h4>深層展開~パラメータの定義~</h4>
+        <p>ここでは深層展開で用いるを作成する。実はここで設定されるパラメータの値は大半が無意味。
+          ここで入れ子を作成することに意味がある。
+        </p>
+        <p><h5>88行目</h5>クラスの作成</p>
+        <p><h5>89~行目</h5>受け取った引数をもとにパラメータを作成する。</p>
+        <p><h5>97～104行目</h5>nn.Parameterから始まるものが最適化パラメータ。"requires_grad=True"にしておくとそのテンソルに関する操作の結果として計算される勾配が自動的に記録され、バックプロパゲーション（逆伝播）を通じて勾配が計算されるようにな
+          る。</p>
+          <p><h5>108～111行目</h5>外乱を作成するのに使用。alpha=beta=1で一様分布でランダムに作成される。外乱の範囲はparameterで指定</p>
+          <pre class="prettyprint linenums:88">class CSTR(nn.Module):  # 深層展開のメインクラス
+            def __init__(self, T, N, epoch, device, path):  # パラメータの定義
+                super(CSTR, self).__init__()
+                self.device = device
+                self.x0 = torch.tensor([1], dtype=torch.double)
+                self.xf = torch.tensor([0.0], dtype=torch.double)
+                self.T = T
+                self.N = N
+        # ?----------------------------------------------------------------最適化パラメータ
+                self.K = nn.Parameter(torch.zeros(
+                    1, self.N, dtype=torch.double, requires_grad=True, device=device))
+                self.L = nn.Parameter(torch.zeros(
+                    2*N, 2*N, dtype=torch.double, requires_grad=True, device=device))
+                self.M = nn.Parameter(torch.zeros(
+                    1, 2*N, dtype=torch.double, requires_grad=True, device=device))
+                self.Mo = nn.Parameter(torch.zeros(
+                    1, 1, dtype=torch.double, requires_grad=True, device=device))
+        
+        
+        # ?----------------------------------------------------------------外乱設定
+                self.alpha = 1
+                self.beta = 1
+                self.minw = parameter.wmin
+                self.maxw = parameter.wmax
+        # ?----------------------------------------------------------------コスト関数
+                self.Q = parameter.Q.to(device)
+                self.Qf = parameter.Qf.to(device)
+                self.R = parameter.R.to(device)
+                self.lam = 1
+        # ?----------------------------------------------------------------その他
+                self.batchSize = 2
+                self.epoch = epoch
+                self.lr = 0.5
+                self.delta = torch.zeros(1, self.T-1, dtype=torch.double)
+                self.beta_val = 3.0
+                self.h = 0.01
+                self.sig = nn.Sigmoid()
+                self.x = torch.tensor([[1.0]], dtype=torch.double, device=device)
+                self.best = 0
+                self.path = path
+                self.datasize = 32</pre>
+<h4>深層展開～関数の定義1～</h4>
+<p>ここからが難しい点。</p>
+<p><h5>131～137行目</h5>トリガ条件φを表すプログラム。論文ではL2,L1,L0だがここでは順にL,M,Moとしている。これは97～行目で指定した最適化パラメータ。xと\hat{x}を縦に並べたものがRx</p>
+<p><h5>139～143行目</h5>評価関数J。ここで出てくる関数"makex","StageCost","FinalCost"は後述。</p>
+<p><h5>148～154行目</h5>ミニバッチ学習用の関数。self.batchSizeで指定された広さの配列を用意し、そこに評価関数の値を順に入れていく。ここで評価関数を求めるときに入る外乱が毎回異なるので、多分ミニバッチ学習になっているはず。</p>
+<pre class="prettyprint linenums:131">
+    def phi(self, x, Ix):  # !柔軟なトリガ
+      Rx = torch.zeros(2*self.N, 1, dtype=torch.double).to(self.device)
+      for i in range(0, self.N):
+          Rx[i] = x[i]
+      for i in range(0, self.N):
+          Rx[i+self.N] = Ix[i]
+      return Rx.T@self.L@Rx+self.M@Rx+self.Mo
+
+    def J(self, T, w):  # !コストを算出
+      cost = torch.zeros(1, dtype=torch.double).to(self.device)
+      x, delta = self.makex(T, w)
+      for i in range(0, T-1):
+          cost = cost+self.StageCost(x[:, [i]],
+                                    self.K@x[:, [i]], delta[:, [i]])
+      cost = cost+self.FinalCost(x[:, [T]])
+      return cost
+
+    def BatchJ(self, T, w):  # !バッチ処理用
+      cost = torch.zeros(1, self.batchSize,
+                        dtype=torch.double).to(self.device)
+      for i in range(self.batchSize):
+          # print("w", w)
+          cost[0, i] = self.J(T, w[i])
+      return cost
+  </pre>
+<h4>深層展開～関数の定義2～</h4>
+<p><h5>157～178行目</h5>次のxを生成する関数。x0から与えられたTステップまで(x_Tまで)求める関数。埋まったxとδを返す。</p>
+<p><h5>181～185目</h5>評価関数のステージコストと終端コストを求める関数。ステージコストと終端コストについては論文に詳細を記載
+ここで論文との変更点はステージコストに通信コストが含まれる。(個数が同じため)
+</p>
+<pre class="prettyprint linenums:157">
+  def makex(self, T, w):  # !制御プラントから次のxを生成
+    x = torch.zeros(self.N, self.T, dtype=torch.double).to(self.device)
+    x_hat = torch.zeros(self.N, 1, dtype=torch.double).to(self.device)
+    delta = torch.zeros(1, self.T-1, dtype=torch.double).to(self.device)
+    u = torch.zeros(1, self.T-1, dtype=torch.double).to(self.device)
+    for i in range(0, self.N):
+        x[i, 0] = self.x0[i]
+        x_hat[i, 0] = self.x0[i]
+    for i in range(0, T):
+        if i == 0:
+            delta[:, [i]] = 1
+            u[:, [i]] = self.K@x_hat
+        else:
+            delta[:, [i]] = self.sig(
+                self.phi(x[:, [i]], x_hat))
+            x_hat = delta[:, [i]]*x[:, [i]] + \
+                (1-delta[:, [i]])*x_hat
+        u[:, [i]] = self.K@x_hat
+        x[:, [i+1]] = Rk.f(x[:, [i]], u[:, [i]])+w[:, [i]]
+    self.delta = delta
+    self.x = x
+    return x, delta
+  # ?----------------------------------------------------------------コスト計算
+
+  def StageCost(self, x, u, delta):  # !ステージコスト
+    return (x-self.xf).T @ self.Q @ (x-self.xf) + u.T @ self.R @ u+self.lam*delta
+
+  def FinalCost(self, x):  # !終端コスト
+    return (x-self.xf).T @ self.Qf @ (x-self.xf)
+</pre>
+<h4>深層展開～関数の定義3～</h4>
+<p>深層展開の処理を行う関数、ここが一番わかりづらい。かなり細かく解説する。
+</p>
+<p><h5>192行目</h5>デッバグ用。PyTorch の自動微分エンジンである Autograd における異常検出機能を有効にするための設定。あるとパフォーマンスが落ちるので消したほうが良い。
+コメントアウトすべし。
+</p>
+<p><h5>193~194行目</h5>最適化手法の選択。ここによってパフォーマンスが大きく変わる。ここではAdamWを使用。これは良く用いられるAdamの改良版んで、基本的にこちらのほうが良い結果が出る(経験則)為採用。他にもいっぱいあるから色々試してみると、良い結果につながるかも。</p>
+<p><h5>195~196行目</h5>最適化して近づける値。ここではbatch.Size分の0でできたテンソルを作成する。関数の定義1で登場したコストは配列になっていた。その配列がこの配列に近づくように最適化する。下図のようなイメージ</p>
+<div class="center">
+  <img src="img/Fig_b.png" alt="" style="width: 500px; height: auto;" />
+</div>
+<p><h5>197～198行目</h5>学習率スケジューラ、その中でもcos関数に従って減少したりするCosineAnnealingWarmRestarts
+を使用する。このあたりのことは卒業論文に記載。(そのうちリンクをはる)
+もしエラーを吐くならここは原因になりうる。Tが5の倍数でないとエラーになる。ここら辺は用改良。
+</p>
+<p><h5>199～200行目</h5>これも学習率スケジューラ。そのなかでもLearning Rate Range Testで使用する。これについても卒業論文に記載。</p>
+<p><h5>201行目</h5>訓練モード開始の指定。多分なくても動く。これがあるから関数の名前にtrainが使えない。</p>
+<p><h5>202～204行目</h5>LRTestでの学習率と評価関数の値の推移を記録する。</p>
+<p><h5>205～行目</h5>エポックのループ開始。インクリメンタル学習を採用している都合上Tの値が大きいとすごい時間がかかる且つ十分量の反復をしているはずなので
+  ここでは基本的にepoch=1に。LRTestでは7くらいにする。
+</p>
+<p><h5>207行目</h5>インクリメンタル学習用(論文に記載)。 </p>
+<p><h5>208～212行目</h5>ミニバッチ学習用のデータを作成するクラスをここで使用。これでミニバッチ学習用のデータを作成する。
+  作成タイミングがここで良いのかは用議論。
+</p>
+<p><h5>214～215行目</h5>進捗確認</p>
+<p><h5>216～221行目</h5>ミニバッチ学習用のループ。"data"でDataSetからwを取り出す処理という認識で良い。</p>
+<p><h5>217行目</h5>最適化のおまじない。Pythochは勾配情報を記録するのでここでリセットしておかないと累積された勾配によってうまく処理ができなくなる。</p>
+<p><h5>223～226行目</h5>このタイミングで学習率を変動</p>
+<p><h5>229～250行目</h5>グラフ作成。学習率の推移、評価関数と学習率関係をプロット。</p>
+<pre class="prettyprint linenums:191">
+  def utrain(self):  # !最重要、ここで訓練
+    torch.autograd.set_detect_anomaly(True)
+    optimizer = optim.AdamW(
+        self.parameters(), lr=self.lr)  # 最適化手法、今回はAdamW
+    target = torch.zeros(
+        1, self.batchSize, dtype=torch.double).to(self.device)
+    cosine_scheduler = CosineAnnealingWarmRestarts(
+        optimizer, T_0=int(self.T/5), T_mult=4, eta_min=1e-7)  # 学習率スケジューラ、今回は全ステップの1/5分学習率を減少、その後再度減少
+    liner_scheduler = LambdaLR(
+        optimizer, lr_lambda=lambda epoch: 10 ** epoch)  # LR Range Test用の学習率スケジューラ、これはエポックごとにLrを10倍
+    self.train()
+    loss_fn = nn.L1Loss()
+    loss_history = []
+    lr_history = []
+    for e in range(self.epoch):  # epoch分繰り返す：これが1サイクル
+        print("epoch", e)
+        for i in range(1, self.T):  # インクリメンタル学習、T_maxまで層を増やしながら学習
+            dataset = DisturbanceDataset(
+                num_samples=self.datasize, N=self.N, T=i+1, minw=self.minw, maxw=self.maxw, alpha=self.alpha, beta2=self.beta)
+
+            dataloader = DataLoader(
+                dataset, batch_size=self.batchSize, shuffle=True)
+
+            if i % 10 == 0:
+                print("Training", i)
+            for data in dataloader:  # ミニバッチ学習、インテレーション数分学習
+                optimizer.zero_grad()
+                costJ = self.BatchJ(i, data.to(self.device))
+                loss = loss_fn(costJ.squeeze(), target)
+                loss.backward()
+                optimizer.step()
+            # TODO 学習率スケジューラを付けたいなら下のプログラムをコメントアウトから解放
+            current_lr = optimizer.param_groups[0]['lr']
+            loss_history.append(loss.item())
+            lr_history.append(current_lr)
+            cosine_scheduler.step()
+
+    # TODO 学習率の推移、評価関数と学習率関係をプロット
+    plt.figure(figsize=(10, 6))
+    plt.plot(lr_history, loss_history, marker='o', linestyle='-')
+    plt.title('Loss vs. Learning Rate')
+    plt.xscale('log')
+    plt.xlabel('Learning Rate')
+    plt.ylabel('Loss')
+    plt.grid(True)
+    path = self.path
+    plt.savefig(path + "lrVScost" + str(self.epoch)+"lr" +
+                str(self.lr)+"T"+str(self.T) + ".svg")
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(1, len(lr_history) + 1),
+            lr_history, marker='o', linestyle='-')
+    plt.title('Learning Rate over Epochs')
+    plt.xlabel('Epoch')
+    plt.yscale('log')
+    plt.ylabel('Learning Rate')
+    plt.grid(True)
+    path = self.path
+    plt.savefig(path + "学習率se" + str(self.epoch)+"lr" +
+                str(self.lr)+"T"+str(self.T) + ".svg")
+
+</pre>
 <h3 class="work_h3">動作結果</h3>
 <p>論文参照。結論だけ言えば既存手法より更新回数、評価関数の値ともに減少させることができた。</p>
 
